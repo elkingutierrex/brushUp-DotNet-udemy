@@ -11,7 +11,7 @@ public class ProductRepository
     {
         WriteLine("Buscando .....producto");
         await Task.Delay(2000);
-        return new Product("MMMMMMMMMMM SIMULADO", 499.99m, true);
+        return new Product("Producto Simulado", 499.99m, true);
 
 
     }
