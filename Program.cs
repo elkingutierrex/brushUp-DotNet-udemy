@@ -3,7 +3,7 @@ using static System.Console;
 
 class Program
 {
-    static void Main()
+    static async Task Main()
     {
         var product = new Product("Smartphone", 499.99m, true);
 
@@ -20,5 +20,7 @@ class Program
         manager.PrintLabel(product);
         manager.PrintLabel(installation);
 
+        var firstProduct = await new ProductRepository().GetProduct(1);
+        WriteLine($"CCCCCC: {firstProduct.Name} - {firstProduct.Price} ");
     }
 }
