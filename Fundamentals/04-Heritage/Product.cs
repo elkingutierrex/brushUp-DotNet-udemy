@@ -35,24 +35,18 @@ public class Product : IProduct
         return $"Product: {Name}, Price: {Price:C}, Available: {IsAvailable}, Created At: {CreatedAt}, Unique Code: {UniqueCode}";
     }
 
-    class ServiceProduct : Product
+}
+
+class ServiceProduct : Product
+{
+    public int DurationInDays { get; set; }
+    public ServiceProduct(string name, decimal price, bool isAvailable, int duration) : base(name, price, isAvailable)
     {
-        public int DurationInDays { get; set; }
-        public ServiceProduct(string name, decimal price, bool isAvailable, int duration) : base(name, price, isAvailable)
-        {
-            DurationInDays = duration;
-        }
-
-
-
-        public override string GetDescription()
-        {
-            return $"{base.GetDescription()} - Duration: {DurationInDays} days";
-
-        }
+        DurationInDays = duration;
     }
+    public override string GetDescription()
+    {
+        return $"{base.GetDescription()} - Duration: {DurationInDays} days";
 
-
-
-
+    }
 }
